@@ -2,7 +2,7 @@ var express = require("express");
 var bp = require("body-parser");
 var cors = require("cors");
 var server = express();
-var port = 3000;
+var port = process.env.PORT  || 3000;
 var dragonRoutes = require('./dragon-routes')
 
 

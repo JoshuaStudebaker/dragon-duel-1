@@ -123,12 +123,12 @@ router.get('/api/dragons/:id', (req, res, next) => {
 
 //Get all champions
 router.get('/api/champions', (req, res, next) => {
-    res.status(200).send(dragons)
+    res.status(200).send(champions)
 })
 //Get champions by Id
 router.get('/api/champions/:id', (req, res, next) => {
-    var dragon = dragons[req.params.id]
-    res.status(200).send(dragon)
+    var champion = champions[req.params.id]
+    res.status(200).send(champion)
 })
 
 //endregion
@@ -158,11 +158,15 @@ router.get('/api/game/:gameId', (req, res, next) => {
     games[req.params.gameId] ? res.send(games[req.params.gameId]) : res.send({ error: 'Invalid GameId' })
 })
 
+//Attack
 router.put('/api/game/:gameId/attack', (req, res, next) => {
     let game = games[req.params.gameId]
     let attack = game._champion.attacks[req.body.attack] 
     if(game && attack){
         game._dragon.currentHP -= diceRoller(attack)
+        if(game._dragon.currentHP<1){
+            game._dragon.currentHP = 0
+        }
         return res.send(game)
     }else{
         return res.status(400).send('Invalid Action')

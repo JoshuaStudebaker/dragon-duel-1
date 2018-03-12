@@ -1,0 +1,22 @@
+{
+  "name": "dragon-server",
+  "version": "1.0.0",
+  "description": "A simple server for Boise CodeCamp Demonstration",
+  "main": "server/index.js",
+  "scripts": {
+    "debug": "node index.js",
+    "start": "node server/index.js"
+  },
+  "author": "Mark Ohnsman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "uuid": "^3.2.1"
+  },
+  "engines":{
+    "node": "^8.0.0",
+    "npm": "^5.0.0"
+  }
+}
