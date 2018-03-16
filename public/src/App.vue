@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h1 class="dragon-font">Champions
+            <img src="./assets/logo.png" height="30rem">s. Dragons</h1>
+        </div>
+      </div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -19,8 +27,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: white;
     margin-top: 60px;
+  }
+
+  body {
+    background: black;
   }
 
   .dragon-font {

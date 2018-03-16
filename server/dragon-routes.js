@@ -46,9 +46,9 @@ var champions = [
         class: 'Wizard',
         hp: 122,
         attacks: {
-            fireBall: '8d6',
-            blight: '8d8',
-            meteorSwarm: '40d6'
+            'Fire-Ball': '8d6',
+            'Blight': '8d8',
+            'Meteor-Swarm': '40d6'
         }
     },
     {
@@ -59,9 +59,9 @@ var champions = [
         class: 'Rogue',
         hp: 123,
         attacks: {
-            shortsword: '1d6',
-            sneakAttack: '10d6',
-            assasinate: '20d6'
+            'Short-Sword': '1d6',
+            'Sneak-Attack': '10d6',
+            'Assasinate': '20d6'
         }
     },
     {
@@ -72,9 +72,9 @@ var champions = [
         class: 'Druid',
         hp: 123,
         attacks: {
-            flamingSphere: '2d6',
-            callLightning: '3d10',
-            sunBurst: '12d6'
+            'flamingSphere': '2d6',
+            'callLightning': '3d10',
+            'sunBurst': '12d6'
         }
     },
     {
@@ -85,9 +85,9 @@ var champions = [
         class: 'Cleric',
         hp: 130,
         attacks: {
-            mace: '1d6',
-            spiritGuardians: '3d8',
-            firestorm: '7d10'
+            'mace': '1d6',
+            'spiritGuardians': '3d8',
+            'firestorm': '7d10'
         }
     },
     {
@@ -98,9 +98,9 @@ var champions = [
         class: 'Warlock',
         hp: 161,
         attacks: {
-            eldrichBlast: '1d10',
-            blight: '8d8',
-            fingerOfDeath: '7d12'
+            'eldrichBlast': '1d10',
+            'blight': '8d8',
+            'fingerOfDeath': '7d12'
         }
     }
 ]
@@ -142,7 +142,7 @@ router.post('/api/game', (req, res, next) => {
     if (dragons[req.body.dragonId] && champions[req.body.championId]) {
         var newGame = {
             _id: uuidv4(),
-            _dragon: dragons[req.body.dragonId],
+            _dragon: JSON.parse(JSON.stringify(dragons[req.body.dragonId])),
             _champion: champions[req.body.championId]
         }
         games[newGame._id] = newGame

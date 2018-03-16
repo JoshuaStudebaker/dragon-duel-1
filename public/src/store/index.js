@@ -1,6 +1,7 @@
 import vue from 'vue'
 import vuex from 'vuex'
 import axios from 'axios'
+import router from '../router'
 vue.use(vuex)
 
 //Handles server endpoint depending on if project is local or in production
@@ -21,7 +22,7 @@ export default new vuex.Store({
     },
     mutations: {
         setGame(state, payload) {
-            state.game = payload.data
+            vue.set(state, "game", payload)
         },
         clearGame(state) {
             state.game = {}
@@ -53,15 +54,23 @@ export default new vuex.Store({
         newGame({ commit, dispatch }, payload) {
             gameServer
                 .post('/game', payload)
-                .then(game => {
-                    commit('setGame', game)
+                .then(res => {
+                    commit('setGame', res.data.game)
+                    router.push({name: 'Game', params:{gameId: res.data.game._id}})
+                })
+        },
+        getGame({ commit, dispatch }, payload){
+            gameServer
+                .get('/game/'+payload)
+                .then(res=>{
+                    commit('setGame', res.data)
                 })
         },
         attack({ commit, dispatch }, payload) {
             gameServer
-                .put('/game/' + payload.gameId + '/attack')
-                .then(game => {
-                    commit('setGame', game)
+                .put('/game/' + payload.gameId + '/attack', payload)
+                .then(res => {
+                    commit('setGame', res.data)
                 })
         }
     }
