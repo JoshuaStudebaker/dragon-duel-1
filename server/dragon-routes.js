@@ -143,7 +143,8 @@ router.post('/api/game', (req, res, next) => {
         var newGame = {
             _id: uuidv4(),
             _dragon: JSON.parse(JSON.stringify(dragons[req.body.dragonId])),
-            _champion: JSON.parse(JSON.stringify(champions[req.body.championId]))
+            _champion: JSON.parse(JSON.stringify(champions[req.body.championId])),
+            history: []
         }
         games[newGame._id] = newGame
         res.send({ status: 'Sucessfully Created Game', game: newGame })
@@ -160,7 +161,6 @@ router.get('/api/game', (req, res, next)=>{
 
 //Get game by gameId
 router.get('/api/game/:gameId', (req, res, next) => {
-    console.log('Fetching Game')
     games[req.params.gameId] ? res.send(games[req.params.gameId]) : res.send({ error: 'Invalid GameId' })
 })
 
@@ -169,8 +169,11 @@ router.put('/api/game/:gameId', (req, res, next) => {
     let game = games[req.params.gameId]
     let attack = game._champion.attacks[req.body.attack] 
     if(game && attack){
-        game._dragon.currentHP -= diceRoller(attack)
-        game._champion.hp -= diceRoller('1d30')
+        let playerDamage = diceRoller(attack)
+        let dragonDamage = diceRoller('3d10')
+        game._dragon.currentHP -= playerDamage
+        game._champion.hp -= dragonDamage
+        game.history.push(`You used ${req.body.attack} doing ${playerDamage} damage. The ${game._dragon.name} did ${dragonDamage} in response`)
         if(game._dragon.currentHP<1){
             game._dragon.currentHP = 0
         }
@@ -185,7 +188,7 @@ router.put('/api/game/:gameId', (req, res, next) => {
 
 
 //End Game
-router.delete('/api/game/:gameId', (req, res, next)=>{
+router.delete('/api/games/:gameId', (req, res, next)=>{
     let game = games[req.params.gameId]
     if(game){
         delete games[req.params.gameId]
