@@ -143,7 +143,7 @@ router.post('/api/game', (req, res, next) => {
         var newGame = {
             _id: uuidv4(),
             _dragon: JSON.parse(JSON.stringify(dragons[req.body.dragonId])),
-            _champion: champions[req.body.championId]
+            _champion: JSON.parse(JSON.stringify(champions[req.body.championId]))
         }
         games[newGame._id] = newGame
         res.send({ status: 'Sucessfully Created Game', game: newGame })
