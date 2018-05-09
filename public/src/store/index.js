@@ -68,7 +68,7 @@ export default new vuex.Store({
         },
         attack({ commit, dispatch }, payload) {
             gameServer
-                .put('/game/' + payload.gameId + '/attack', payload)
+                .put('/game/' + payload.gameId, payload)
                 .then(res => {
                     commit('setGame', res.data)
                 })
