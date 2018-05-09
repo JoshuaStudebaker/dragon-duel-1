@@ -152,6 +152,12 @@ router.post('/api/game', (req, res, next) => {
     }
 })
 
+
+//Get all games
+router.get('/api/game', (req, res, next)=>{
+    res.send(games)
+})
+
 //Get game by gameId
 router.get('/api/game/:gameId', (req, res, next) => {
     console.log('Fetching Game')
