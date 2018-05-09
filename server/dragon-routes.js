@@ -170,8 +170,12 @@ router.put('/api/game/:gameId', (req, res, next) => {
     let attack = game._champion.attacks[req.body.attack] 
     if(game && attack){
         game._dragon.currentHP -= diceRoller(attack)
+        game._champion.hp -= diceRoller('1d30')
         if(game._dragon.currentHP<1){
             game._dragon.currentHP = 0
+        }
+        if(game._champion.hp<1){
+            game._champion.hp = 0
         }
         return res.send(game)
     }else{
