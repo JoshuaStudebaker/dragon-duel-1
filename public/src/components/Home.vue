@@ -8,6 +8,7 @@
       <div class="row">
         <champions v-on:setChampion='setChampion' :activeChampion='activeChampion' class="col-md col-12"></champions>
         <dragons v-on:setDragon='setDragon' :activeDragon='activeDragon' class="col-md col-12"></dragons>
+                <dragons v-on:setDragon='setDragon' :activeDragon='activeDragon' class="col-md col-12"></dragons>
       </div>
     </div>
 </template>

@@ -159,7 +159,7 @@ router.get('/api/game/:gameId', (req, res, next) => {
 })
 
 //Attack
-router.put('/api/game/:gameId/attack', (req, res, next) => {
+router.put('/api/game/:gameId', (req, res, next) => {
     let game = games[req.params.gameId]
     let attack = game._champion.attacks[req.body.attack] 
     if(game && attack){
@@ -170,6 +170,19 @@ router.put('/api/game/:gameId/attack', (req, res, next) => {
         return res.send(game)
     }else{
         return res.status(400).send('Invalid Action')
+    }
+})
+
+
+//End Game
+router.delete('/api/game/:gameId', (req, res, next)=>{
+    let game = games[req.params.gameId]
+    if(game){
+        delete games[req.params.gameId]
+        res.status(200).send('Successfully Deleted Game')
+    }
+    else{
+        res.status(400).send(`gameId ${req.params.gameId} was not found`)
     }
 })
 
