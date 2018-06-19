@@ -105,7 +105,7 @@ var champions = [
     }
 ]
 var games = {}
-//region DRAGONS
+
 
 //Get all dragons
 router.get('/api/dragons', (req, res, next) => {
@@ -117,9 +117,7 @@ router.get('/api/dragons/:id', (req, res, next) => {
     res.status(200).send(dragon)
 })
 
-//endregion
 
-//region CHAMPOINS
 
 //Get all champions
 router.get('/api/champions', (req, res, next) => {
@@ -131,9 +129,16 @@ router.get('/api/champions/:id', (req, res, next) => {
     res.status(200).send(champion)
 })
 
-//endregion
 
-//region GAME
+//Get all games
+router.get('/api/games', (req, res, next)=>{
+    res.send(games)
+})
+
+//Get game by gameId
+router.get('/api/games/:gameId', (req, res, next) => {
+    games[req.params.gameId] ? res.send(games[req.params.gameId]) : res.send({ error: 'Invalid GameId' })
+})
 
 //New Game
 router.post('/api/games', (req, res, next) => {
@@ -151,17 +156,6 @@ router.post('/api/games', (req, res, next) => {
     } else {
         res.status(400).send({ error: 'Please provide a valid dragonId and a championId' })
     }
-})
-
-
-//Get all games
-router.get('/api/games', (req, res, next)=>{
-    res.send(games)
-})
-
-//Get game by gameId
-router.get('/api/games/:gameId', (req, res, next) => {
-    games[req.params.gameId] ? res.send(games[req.params.gameId]) : res.send({ error: 'Invalid GameId' })
 })
 
 //Attack
@@ -186,7 +180,6 @@ router.put('/api/games/:gameId', (req, res, next) => {
     }
 })
 
-
 //End Game
 router.delete('/api/games/:gameId', (req, res, next)=>{
     let game = games[req.params.gameId]
@@ -199,10 +192,10 @@ router.delete('/api/games/:gameId', (req, res, next)=>{
     }
 })
 
-//endregion
 
 
-//region HELPERS
+
+
 
 function diceRoller(str) {
     str = str.toLowerCase().split('d')
@@ -214,7 +207,7 @@ function diceRoller(str) {
     }
     return total
 }
-//endregion
+
 
 
 module.exports = { router }

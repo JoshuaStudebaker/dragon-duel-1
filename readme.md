@@ -1,10 +1,49 @@
-## Dragon-Vue
+#  Dragon-Duel-API Documentation
 
-A demo project for Boise CodeCamp showing off the ease of use of VueJS as a reliable and powerful framework
+  
 
-<em>To Run: </em>
-* open server and public and run npm i
-* start your server with npm run debug
-* start the public file with npm run dev
+##  Dragon Routes
 
-This project can also be found live at https://dragon-vue.herokuapp.com
+**GET**: https://dragon-duel.herokuapp.com/api/dragons 
+
+ - Returns all Dragons
+
+**GET**: https://dragon-duel.herokuapp.com/api/dragons/:id
+
+ - Returns a Dragon at specific id
+
+##  Champion Routes
+
+**GET**: https://dragon-duel.herokuapp.com/api/champions
+
+ - Returns all Champions
+
+**GET**: https://dragon-duel.herokuapp.com/api/champions/:id
+
+ - Returns a Champion at specific id
+
+##  Game Routes
+
+**GET**:  https://dragon-duel.herokuapp.com/api/games
+
+ - Returns all Games
+
+**GET**: https://dragon-duel.herokuapp.com/api/games/:gameId
+
+ - Returns Games at specific id
+ 
+**POST**:  https://dragon-duel.herokuapp.com/api/games
+
+ - *BODY*: { **dragonId**: *(some dragon id)*, **championId**: *(some championId)* }
+ - Creates New Game and returns full game object
+ 
+ **PUT**:  https://dragon-duel.herokuapp.com/api/games/:id
+
+ - *BODY*: { **attack**: *(attack name from champion attack options)* }
+ - Attacks Dragon with specified attack and returns updated Game object
+		 - Note: both the player and the dragon will take damage
+	
+**DELETE**:  https://dragon-duel.herokuapp.com/api/games/:id
+
+ - Removes the game at the specified id
+
