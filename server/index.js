@@ -6,19 +6,11 @@ var port = process.env.PORT  || 3000;
 var dragonRoutes = require('./dragon-routes')
 
 
-var whitelist = ['http://localhost:8081', 'https://dragon-vue.herokuapp.com/', 'http://localhost:8080'];
-var corsOptions = {
-	origin: function (origin, callback) {
-		var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-		callback(null, originIsWhitelisted);
-	},
-	credentials: true
-};
 
-server.use(cors(corsOptions));
+
+server.use(cors());
 server.use(bp.json());
 server.use(bp.urlencoded({ extended: true }));
-server.use(express.static(__dirname + "/../public/dist")) 
 
 
 server.use(dragonRoutes.router)

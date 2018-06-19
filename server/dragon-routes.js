@@ -136,7 +136,7 @@ router.get('/api/champions/:id', (req, res, next) => {
 //region GAME
 
 //New Game
-router.post('/api/game', (req, res, next) => {
+router.post('/api/games', (req, res, next) => {
     let activeDragon = {}
     let activeChampion = {}
     if (dragons[req.body.dragonId] && champions[req.body.championId]) {
@@ -155,17 +155,17 @@ router.post('/api/game', (req, res, next) => {
 
 
 //Get all games
-router.get('/api/game', (req, res, next)=>{
+router.get('/api/games', (req, res, next)=>{
     res.send(games)
 })
 
 //Get game by gameId
-router.get('/api/game/:gameId', (req, res, next) => {
+router.get('/api/games/:gameId', (req, res, next) => {
     games[req.params.gameId] ? res.send(games[req.params.gameId]) : res.send({ error: 'Invalid GameId' })
 })
 
 //Attack
-router.put('/api/game/:gameId', (req, res, next) => {
+router.put('/api/games/:gameId', (req, res, next) => {
     let game = games[req.params.gameId]
     let attack = game._champion.attacks[req.body.attack] 
     if(game && attack){
