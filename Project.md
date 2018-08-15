@@ -16,10 +16,11 @@ In the end the player will either celebrate victory or wallow in defeat
 *\*For an example of this code in action see: http://dragon-vue.herokuapp.com/#/*
 
 ## Requirements
-Functionality
+**Functionality**
   - Once a game is started do not allow for changing champions until the game is ended (or page reloaded)
   - Champion and Dragon status is updated automatically after every attack
-Visualization
+
+**Visualization**
   - Players must see a list of all possible champions and dragons to play from
   - When players create a new game all possible attacks are drawn as buttons to the screen
   - When a player wins/loses the screen will notify them and they will have the chance to play again
