@@ -34,12 +34,22 @@
  
 **POST**:  https://dragon-duel.herokuapp.com/api/games
 
- - *BODY*: { **dragonId**: *(some dragon id)*, **championId**: *(some championId)* }
+ - *BODY*: 
+ 	```javascript
+ 		{ 
+		  dragonId: string //some dragon id, 
+		  championId: string //some championId
+		}
  - Creates New Game and returns full game object
  
  **PUT**:  https://dragon-duel.herokuapp.com/api/games/:id
 
- - *BODY*: { **attack**: *(attack name from champion attack options)* }
+ - *BODY*: 
+	 ```javascript
+	 { 
+	 	attack: string //attack name from champion attack options 
+	 }
+	 ```
  - Attacks Dragon with specified attack and returns updated Game object
 		 - Note: both the player and the dragon will take damage
 	
