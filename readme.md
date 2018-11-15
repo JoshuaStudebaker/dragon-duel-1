@@ -61,27 +61,30 @@
 
  The game object you recieve will look something like this:
  ```javascript
- "game": {
-        "_id": "a11f6c4c-a61c-46e1-bb0e-c6a51a6d4af2",
-        "_dragon": {
-            "id": 1,
-            "name": "Adult White Dragon",
-            "imgUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/125/1000/1000/636252755468117001.jpeg",
-            "maxHP": 200,
-            "currentHP": 200
-        },
-        "_champion": {
-            "id": 1,
-            "name": "Nethtari",
-            "imgUrl": "https://i.pinimg.com/originals/5c/23/4a/5c234aa91d5e94cf3fa163d869dd5ef8.jpg",
-            "race": "Tiefling",
-            "class": "Rogue",
-            "hp": 123,
-            "attacks": {
-                "Short-Sword": "1d6",
-                "Sneak-Attack": "10d6",
-                "Assasinate": "20d6"
-            }
-        },
-        "history": []
+ {
+   "a11f6c4c-a61c-46e1-bb0e-c6a51a6d4af2": {
+	"_id": "a11f6c4c-a61c-46e1-bb0e-c6a51a6d4af2",
+	"_dragon": {
+		"id": 1,
+		"name": "Adult White Dragon",
+		"imgUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/125/1000/1000/636252755468117001.jpeg",
+		"maxHP": 200,
+		"currentHP": 200
+	},
+	"_champion": {
+		"id": 1,
+		"name": "Nethtari",
+		"imgUrl": "https://i.pinimg.com/originals/5c/23/4a/5c234aa91d5e94cf3fa163d869dd5ef8.jpg",
+		"race": "Tiefling",
+		"class": "Rogue",
+		"hp": 123,
+		"attacks": {
+			"Short-Sword": "1d6",
+			"Sneak-Attack": "10d6",
+			"Assasinate": "20d6"
+		}
+	},
+	"history": []
+  }
+}
  ```
