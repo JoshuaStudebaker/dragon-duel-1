@@ -60,9 +60,8 @@
 ## Game Object
 
  The game object you recieve will look something like this:
- ```javascript
+ ```json
  {
-   "a11f6c4c-a61c-46e1-bb0e-c6a51a6d4af2": {
 	"_id": "a11f6c4c-a61c-46e1-bb0e-c6a51a6d4af2",
 	"_dragon": {
 		"id": 1,
@@ -85,6 +84,5 @@
 		}
 	},
 	"history": []
-  }
 }
  ```
