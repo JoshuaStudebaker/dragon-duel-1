@@ -1,22 +1,22 @@
 {
-  "name": "dragon-server",
+  "name": "dragon",
   "version": "1.0.0",
-  "description": "A simple server for Boise CodeCamp Demonstration",
-  "main": "server/index.js",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "debug": "node index.js",
-    "start": "node server/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mark Ohnsman",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoiseCodeWorks/dragon-duel.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "uuid": "^3.2.1"
+  "bugs": {
+    "url": "https://github.com/BoiseCodeWorks/dragon-duel/issues"
   },
-  "engines": {
-    "node": "^8.0.0",
-    "npm": "^5.0.0"
-  }
+  "homepage": "https://github.com/BoiseCodeWorks/dragon-duel#readme"
 }
