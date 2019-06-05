@@ -2,7 +2,6 @@ import express from "express"
 
 let _repo;
 
-
 export default class BaseController {
     constructor(ServiceRef) {
         _repo = new ServiceRef().repository

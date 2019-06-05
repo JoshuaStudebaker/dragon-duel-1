@@ -26,10 +26,12 @@ server.use(bp.json())
 
 import ChampionController from "./controllers/ChampionController";
 import DragonController from "./controllers/DragonController";
+import GameController from "./controllers/GameController"
 
 
 server.use("/api/champions", new ChampionController().router)
 server.use("/api/dragons", new DragonController().router)
+server.use("/api/games", new GameController().router)
 
 
 
@@ -39,4 +41,4 @@ server.use((error, req, res, next) => {
 })
 
 server
-    .listen(port, () => console.log("listening on 5555"))
+    .listen(port, () => console.log(`listening on ${port}`))
