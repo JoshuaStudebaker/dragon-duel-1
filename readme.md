@@ -37,8 +37,8 @@
  - *BODY*: 
  	```javascript
  		{ 
-		  dragonId: string //some dragon id, 
-		  championId: string //some championId
+		  dragon: string //some dragon _id, 
+		  champion: string //some champion _id
 		}
  - Creates New Game and returns full game object
  
@@ -59,30 +59,48 @@
 
 ## Game Object
 
- The game object you recieve will look something like this:
- ```json
- {
-	"_id": "a11f6c4c-a61c-46e1-bb0e-c6a51a6d4af2",
-	"_dragon": {
-		"id": 1,
-		"name": "Adult White Dragon",
-		"imgUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/125/1000/1000/636252755468117001.jpeg",
-		"maxHP": 200,
-		"currentHP": 200
-	},
-	"_champion": {
-		"id": 1,
-		"name": "Nethtari",
-		"imgUrl": "https://i.pinimg.com/originals/5c/23/4a/5c234aa91d5e94cf3fa163d869dd5ef8.jpg",
-		"race": "Tiefling",
-		"class": "Rogue",
-		"hp": 123,
-		"attacks": {
-			"Short-Sword": "1d6",
-			"Sneak-Attack": "10d6",
-			"Assasinate": "20d6"
-		}
-	},
-	"history": []
-}
+ The game object you recieve from your get by id will look something like this (obviously values for champion and dragon change based on selection):
+ ```javascript
+  {
+    "gameOver": false, //Status of the game
+    "history": [
+      //String of attack history as the game is played
+    ],
+    "_id": "5cf7f0bfa0678614a4e2dae8",
+    "dragon": {
+	    "_id": "5cf7ddd04eaeb52074787892",
+	    "name": "Adult Black Dragon",
+	    "imgUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/13/1000/1000/636238871029832086.jpeg",
+	    "hp": 195, // this is the max hp for this dragon
+	    "__v": 0
+	    },
+    "champion": {
+	    "_id": "5cf7d96e09bdf33014831e33",
+	    "name": "Zylna",
+	    "imgUrl": "https://i.pinimg.com/474x/30/be/96/30be9640018354cbe9c90794ef280ea3--warcraft-art-world-of-warcraft.jpg",
+	    "race": "Elf",
+	    "class": "Cleric",
+	    "hp": 130, //this is the max hp for this champion
+	    "attacks": [
+	      {
+		"_id": "5cf7d96e09bdf33014831e36",
+		"name": "mace",
+		"damage": "1d6"
+	      },
+	      {
+		"_id": "5cf7d96e09bdf33014831e35",
+		"name": "spiritGuardians",
+		"damage": "3d8"
+	      },
+	      {
+		"_id": "5cf7d96e09bdf33014831e34",
+		"name": "firestorm",
+		"damage": "7d10"
+	      }
+	    ]
+	   }
+    "dragonHp": 195, //hp for this games dragon
+    "championHp": 130, //hp for this games champion
+    "__v": 0
+  }
  ```
