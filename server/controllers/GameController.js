@@ -8,7 +8,7 @@ let _gameRepo = _service.repository
 let _dragonRepo = new DragonService().repository
 let _championRepo = new ChampionService().repository
 
-export default class BaseController {
+export default class GameController {
     constructor() {
         this.router = express.Router()
             .get("", this.getAll)
