@@ -39,7 +39,10 @@ export default class GameController {
 
     async create(req, res, next) {
         try {
-            let [dragon, champion] = await Promise.all([_dragonRepo.findById(req.body.dragon), _championRepo.findById(req.body.champion)]);
+            let [dragon, champion] = await Promise.all([
+                _dragonRepo.findById(req.body.dragon),
+                _championRepo.findById(req.body.champion)
+            ]);
             req.body.dragonHp = dragon.hp
             req.body.championHp = champion.hp
             let data = await _gameRepo.create(req.body)

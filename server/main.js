@@ -6,7 +6,7 @@ let server = express()
 let bp = require('body-parser')
 let port = process.env.PORT || 3000;
 
-var whitelist = ['http://localhost:8081', 'https://dragon-fight.herokuapp.com/', 'http://localhost:8080'];
+var whitelist = ['http://localhost:8081', 'https://dragon-duel.herokuapp.com/', 'http://localhost:8080'];
 var corsOptions = {
     origin: function (origin, callback) {
         var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
